@@ -1,138 +1,245 @@
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import '../contoller/avatar_controller.dart';
+// import '../cash_epic_dollar/history_screen.dart';
+// import '../controller/controller.dart';
 //
-//
-// class ChooseAvatarScreen extends StatelessWidget {
-//   final AvatarController controller = Get.put(AvatarController());
-//
-//   final List<String> avatarPaths = List.generate(
-//     12,
-//         (index) => 'assets/avatars/avatar_${index + 1}.png',
+// class CashEpicDollarScreen extends StatelessWidget {
+//   final CashEpicDollarController controller = Get.put(
+//     CashEpicDollarController(),
 //   );
-//
-//   final int defaultAvatarIndex = 0;
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     // Set default avatar if none is selected
-//     controller.selectedAvatarIndex.value = defaultAvatarIndex;
-//
 //     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: SafeArea(
-//         child: Padding(
-//           padding: const EdgeInsets.all(16.0),
-//           child: Column(
-//             children: [
-//               Text(
-//                 "Choose avatar for profile Image",
-//                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//       appBar: AppBar(
+//         title: const Text('Cash Epic Dollar'),
+//         leading: const BackButton(),
+//         centerTitle: true,
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Container(
+//               padding: const EdgeInsets.all(24),
+//               decoration: BoxDecoration(
+//                 color: Colors.yellow[100],
+//                 borderRadius: BorderRadius.circular(16),
 //               ),
-//               SizedBox(height: 4),
-//               Text(
-//                 "Choose an avatar that best fits your profile.",
-//                 textAlign: TextAlign.center,
-//               ),
-//               SizedBox(height: 20),
-//
-//               // Selected avatar preview
-//               Obx(() => Container(
-//                 height: 120,
-//                 width: 120,
-//                 decoration: BoxDecoration(
-//                   borderRadius: BorderRadius.circular(12),
-//                   color: Colors.grey.shade100,
-//                   image: DecorationImage(
-//                     image: AssetImage(
-//                       avatarPaths[controller.selectedAvatarIndex.value],
-//                     ),
-//                     fit: BoxFit.contain,
-//                   ),
+//               child: Center(
+//                 child: Image.asset(
+//                   'assets/images/cash_epic_image.png',
+//                   height: 100,
+//                   fit: BoxFit.contain,
 //                 ),
-//               )),
-//               SizedBox(height: 12),
-//
-//               ElevatedButton(
+//               ),
+//             ),
+//             const SizedBox(height: 16.0),
+//             const Text(
+//               "Cash Out",
+//               style: TextStyle(
+//                 fontSize: 16,
+//                 fontWeight: FontWeight.w500,
+//                 fontFamily: "Ballo2",
+//               ),
+//             ),
+//             const SizedBox(height: 16),
+//             TextFormField(
+//               readOnly: true,
+//               decoration: InputDecoration(
+//                 hintText: "100 epic dollar is equal to \$1 when cash out",
+//                 hintStyle: TextStyle(
+//                   fontSize: 14,
+//                   fontWeight: FontWeight.w500,
+//                   fontFamily: "Baloo2",
+//                 ),
+//                 border: OutlineInputBorder(
+//                   borderRadius: BorderRadius.circular(10),
+//                 ),
+//               ),
+//             ),
+//             const SizedBox(height: 16),
+//             Center(
+//               child: ElevatedButton(
 //                 onPressed: () {
-//                   Get.snackbar("Saved", "Avatar selection saved!");
-//                 },
-//                 style: ElevatedButton.styleFrom(
-//                   backgroundColor: Colors.amber,
-//                   padding: EdgeInsets.symmetric(horizontal: 80, vertical: 12),
-//                   shape: RoundedRectangleBorder(
-//                     borderRadius: BorderRadius.circular(10),
-//                   ),
-//                 ),
-//                 child: Text("Save", style: TextStyle(color: Colors.black)),
-//               ),
-//               SizedBox(height: 20),
-//
-//               // Avatar selection grid
-//               Expanded(
-//                 child: Container(
-//                   decoration: BoxDecoration(
-//                     color: Colors.grey.shade200,
-//                     borderRadius: BorderRadius.circular(20),
-//                   ),
-//                   padding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-//                   child: Obx(() => GridView.builder(
-//                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                       crossAxisCount: 3,
-//                       mainAxisSpacing: 12,
-//                       crossAxisSpacing: 12,
-//                       childAspectRatio: 1,
-//                     ),
-//                     itemCount: avatarPaths.length,
-//                     itemBuilder: (context, index) {
-//                       final isSelected =
-//                           controller.selectedAvatarIndex.value == index;
-//                       return GestureDetector(
-//                         onTap: () => controller.selectAvatar(index),
-//                         child: Stack(
-//                           alignment: Alignment.bottomCenter,
-//                           children: [
-//                             Container(
-//                               decoration: BoxDecoration(
-//                                 borderRadius: BorderRadius.circular(12),
-//                                 color: Colors.white,
-//                                 border: Border.all(
-//                                   color: isSelected
-//                                       ? Colors.amber
-//                                       : Colors.grey.shade300,
-//                                   width: 2,
+//                   showDialog(
+//                     context: context,
+//                     barrierDismissible: false,
+//                     builder: (context) {
+//                       return Dialog(
+//                         shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(16),
+//                         ),
+//                         child: Padding(
+//                           padding: const EdgeInsets.all(20.0),
+//                           child: Column(
+//                             mainAxisSize: MainAxisSize.min,
+//                             children: [
+//                               Container(
+//                                 padding: const EdgeInsets.all(16),
+//                                 decoration: BoxDecoration(
+//                                   shape: BoxShape.circle,
+//                                   color: Colors.yellow[700],
 //                                 ),
-//                                 image: DecorationImage(
-//                                   image: AssetImage(avatarPaths[index]),
-//                                   fit: BoxFit.contain,
+//                                 child: const Icon(
+//                                   Icons.check,
+//                                   color: Colors.black,
+//                                   size: 36,
 //                                 ),
 //                               ),
-//                             ),
-//                             Positioned(
-//                               bottom: 6,
-//                               child: CircleAvatar(
-//                                 radius: 10,
-//                                 backgroundColor: Colors.white,
-//                                 child: Icon(
-//                                   isSelected
-//                                       ? Icons.check_circle
-//                                       : Icons.circle_outlined,
-//                                   color: isSelected
-//                                       ? Colors.green
-//                                       : Colors.grey,
-//                                   size: 16,
+//                               const SizedBox(height: 20),
+//                               const Text(
+//                                 "Your request has been submitted!",
+//                                 textAlign: TextAlign.center,
+//                                 style: TextStyle(
+//                                   fontSize: 16,
+//                                   fontWeight: FontWeight.w500,
 //                                 ),
 //                               ),
-//                             ),
-//                           ],
+//                               const SizedBox(height: 20),
+//                               SizedBox(
+//                                 width: double.infinity,
+//                                 child: ElevatedButton(
+//                                   style: ElevatedButton.styleFrom(
+//                                     foregroundColor: Colors.black,
+//                                     backgroundColor: Colors.yellow[700],
+//                                     shape: RoundedRectangleBorder(
+//                                       borderRadius: BorderRadius.circular(8),
+//                                     ),
+//                                   ),
+//                                   onPressed: () {
+//                                     Get.back(); // Instead of Navigator.pop
+//                                   },
+//                                   child: const Text("Okay"),
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
 //                         ),
 //                       );
 //                     },
-//                   )),
+//                   );
+//                 },
+//                 child: const Text("Submit"),
+//               ),
+//             ),
+//             const SizedBox(height: 24),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//               children: [
+//                 const Text(
+//                   "History",
+//                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//                 ),
+//                 GestureDetector(
+//                   onTap: () => Get.to(() => HistoryScreen()),
+//                   child: const Text(
+//                     "View all",
+//                     style: TextStyle(color: Colors.orange),
+//                   ),
+//                 ),
+//               ],
+//             ),
+//             const SizedBox(height: 10),
+//             Expanded(
+//               child: Obx(
+//                 () => ListView.builder(
+//                   itemCount: controller.history.length,
+//                   itemBuilder: (context, index) {
+//                     var item = controller.history[index];
+//                     return Card(
+//                       shape: RoundedRectangleBorder(
+//                         borderRadius: BorderRadius.circular(12),
+//                       ),
+//                       child: Padding(
+//                         padding: const EdgeInsets.symmetric(
+//                           horizontal: 12,
+//                           vertical: 10,
+//                         ),
+//                         child: Row(
+//                           children: [
+//                             ClipRRect(
+//                               borderRadius: BorderRadius.circular(8),
+//                               child: Image.asset(
+//                                 item['image'],
+//                                 width: 40,
+//                                 height: 35,
+//                                 fit: BoxFit.contain,
+//                               ),
+//                             ),
+//                             const SizedBox(width: 12),
+//                             Expanded(
+//                               child: Column(
+//                                 crossAxisAlignment: CrossAxisAlignment.start,
+//                                 children: [
+//                                   Text(
+//                                     item['title'],
+//                                     style: const TextStyle(
+//                                       fontSize: 16,
+//                                       fontWeight: FontWeight.bold,
+//                                     ),
+//                                   ),
+//                                   const SizedBox(height: 4),
+//                                   Text(
+//                                     item['date'],
+//                                     style: TextStyle(
+//                                       color: Colors.grey[600],
+//                                       fontSize: 13,
+//                                     ),
+//                                   ),
+//                                 ],
+//                               ),
+//                             ),
+//                             Column(
+//                               crossAxisAlignment: CrossAxisAlignment.end,
+//                               children: [
+//                                 const Text(
+//                                   "Epic dollars",
+//                                   style: TextStyle(
+//                                     fontSize: 12,
+//                                     color: Colors.grey,
+//                                   ),
+//                                 ),
+//                                 const SizedBox(height: 4),
+//                                 Container(
+//                                   padding: const EdgeInsets.symmetric(
+//                                     horizontal: 10,
+//                                     vertical: 6,
+//                                   ),
+//                                   decoration: BoxDecoration(
+//                                     borderRadius: BorderRadius.circular(20),
+//                                     border: Border.all(color: Colors.orange),
+//                                   ),
+//                                   child: Row(
+//                                     mainAxisSize: MainAxisSize.min,
+//                                     children: [
+//                                       const Icon(
+//                                         Icons.monetization_on,
+//                                         color: Colors.amber,
+//                                         size: 18,
+//                                       ),
+//                                       const SizedBox(width: 4),
+//                                       Text(
+//                                         "${item['epicDollars']}",
+//                                         style: const TextStyle(
+//                                           fontWeight: FontWeight.bold,
+//                                         ),
+//                                       ),
+//                                     ],
+//                                   ),
+//                                 ),
+//                               ],
+//                             ),
+//                           ],
+//                         ),
+//                       ),
+//                     );
+//                   },
 //                 ),
 //               ),
-//             ],
-//           ),
+//             ),
+//           ],
 //         ),
 //       ),
 //     );

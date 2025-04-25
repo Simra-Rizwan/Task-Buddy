@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertest/constants/colors.dart';
 import 'package:get/get.dart';
-import '../contoller/code_screen_controller.dart';
+import '../controller/code_screen_controller.dart';
 
 class ParentCodeScreen extends StatelessWidget {
   final CodeScreenController controller = Get.put(CodeScreenController());

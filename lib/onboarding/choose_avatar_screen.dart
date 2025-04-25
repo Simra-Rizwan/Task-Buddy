@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
-import "package:fluttertest/contoller/avatar_controller.dart";
+import "package:fluttertest/cash_epic_dollar/cash_epic_screen.dart";
+import "package:fluttertest/controller/avatar_controller.dart";
 import "package:get/get.dart";
 
 import "../constants/colors.dart";
@@ -49,40 +50,63 @@ class ChooseAvatarScreen extends StatelessWidget {
               ),
               SizedBox(height: 20,),
               //Selected Avatar
-              Obx(
-                    () => Container(
+          Obx(
+                () => Stack(
+              children: [
+                Container(
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
-                    color: Colors.white, // Outer white frame
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  padding: EdgeInsets.all(6), // Padding around inner container
+                  padding: EdgeInsets.all(6),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade200, // light grey background
+                      color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(14),
                     ),
-                    padding: EdgeInsets.all(6), // optional padding to give space around inner avatar
+                    padding: EdgeInsets.all(6),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.grey.shade200, // Grey background
+                        color: Colors.grey.shade200,
                         image: DecorationImage(
                           image: AssetImage(
                             avatarPaths[controller.selectedAvatarIndex.value],
                           ),
-                          fit: BoxFit.contain, // Keeps grey background around the image
+                          fit: BoxFit.contain,
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                Positioned(
+                  bottom: -5,
+                  right: 0,
+                  left: 0,
+                  child: CircleAvatar(
+                    radius: 12,
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      Icons.check_circle,
+                      size: 20,
+                      color: Colors.orange,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
               SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
-                  Get.snackbar("Selected", "Avatar has been selected");
+                  if (controller.selectedAvatarIndex.value!= null) {
+                    Get.snackbar("Selected", "Avatar has been selected");
+                    Get.to(()=>(CashEpicScreen())); // Replace with your actual route name
+                  } else {
+                    Get.snackbar("No Selection", "Please select an avatar before saving");
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.orange,
@@ -100,7 +124,7 @@ class ChooseAvatarScreen extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     color: AppColors.grey,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
                   child: GridView.builder(
@@ -117,44 +141,44 @@ class ChooseAvatarScreen extends StatelessWidget {
                         return GestureDetector(
                           onTap: () => controller.selectAvatar(index),
                           child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                // Outer light grey container
-                                Container(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              // Outer light grey container
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.shade200, // light grey background
+                                  borderRadius: BorderRadius.circular(14),
+                                ),
+                                padding: EdgeInsets.all(6), // optional padding to give space around inner avatar
+                                child: Container(
                                   decoration: BoxDecoration(
-                                    color: Colors.grey.shade200, // light grey background
-                                    borderRadius: BorderRadius.circular(14),
-                                  ),
-                                  padding: EdgeInsets.all(6), // optional padding to give space around inner avatar
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12),
-                                      color: Colors.white,
-                                      border: Border.all(
-                                        color: isSelected ? Colors.amber : Colors.grey.shade300,
-                                        width: 2,
-                                      ),
-                                      image: DecorationImage(
-                                        image: AssetImage(avatarPaths[index]),
-                                        fit: BoxFit.contain,
-                                      ),
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Colors.white,
+                                    border: Border.all(
+                                      color: isSelected ? Colors.amber : Colors.grey.shade300,
+                                      width: 2,
+                                    ),
+                                    image: DecorationImage(
+                                      image: AssetImage(avatarPaths[index]),
+                                      fit: BoxFit.contain,
                                     ),
                                   ),
                                 ),
-                                // Checkbox icon
-                                Positioned(
-                                  bottom: 6,
-                                  child: CircleAvatar(
-                                    radius: 10,
-                                    backgroundColor: Colors.white,
-                                    child: Icon(
-                                      isSelected ? Icons.check_circle : Icons.circle_outlined,
-                                      color: isSelected ? AppColors.orange: Colors.grey,
-                                      size: 16,
-                                    ),
+                              ),
+                              // Checkbox icon
+                              Positioned(
+                                bottom: 6,
+                                child: CircleAvatar(
+                                  radius: 10,
+                                  backgroundColor: Colors.white,
+                                  child: Icon(
+                                    isSelected ? Icons.check_circle : Icons.circle_outlined,
+                                    color: isSelected ? AppColors.orange: Colors.grey,
+                                    size: 16,
                                   ),
                                 ),
-                              ],
+                              ),
+                            ],
                           ),
                         );
                       });
