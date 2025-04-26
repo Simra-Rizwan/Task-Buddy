@@ -1,8 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:fluttertest/controller/cash_epic_controller.dart';
 import 'package:get/get.dart';
+import '../achievement_screen.dart';
 import '../constants/colors.dart';
 import 'history_screen.dart';
 
@@ -38,13 +38,16 @@ class CashEpicScreen extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 8.0, top: 18.0),
             child: Container(
+              width: 36,
+              height: 36,
               decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.rectangle,
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(10),
               ),
               child: IconButton(
                 icon: const Icon(Icons.arrow_back, color: AppColors.orange),
                 onPressed: () => Get.back(),
+                padding: EdgeInsets.zero,
               ),
             ),
           ),
@@ -56,9 +59,7 @@ class CashEpicScreen extends StatelessWidget {
           return SingleChildScrollView(
             padding: const EdgeInsets.all(16.0),
             child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight,
-              ),
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: IntrinsicHeight(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +70,9 @@ class CashEpicScreen extends StatelessWidget {
                         height: 165,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/images/cash_epic_image.png'),
+                            image: AssetImage(
+                              'assets/images/cash_epic_image.png',
+                            ),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -119,7 +122,8 @@ class CashEpicScreen extends StatelessWidget {
                     TextFormField(
                       readOnly: false,
                       decoration: InputDecoration(
-                        hintText: "100 epic dollar is equal to \$1 when cash out",
+                        hintText:
+                            "100 epic dollar is equal to \$1 when cash out",
                         hintStyle: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
@@ -133,7 +137,10 @@ class CashEpicScreen extends StatelessWidget {
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
-                          borderSide: BorderSide(color: AppColors.orange, width: 2.0),
+                          borderSide: BorderSide(
+                            color: AppColors.orange,
+                            width: 2.0,
+                          ),
                         ),
                       ),
                     ),
@@ -157,23 +164,34 @@ class CashEpicScreen extends StatelessWidget {
                               barrierLabel: "BlurredBackground",
                               barrierColor: Colors.black.withOpacity(0.3),
                               transitionDuration: Duration(milliseconds: 300),
-                              pageBuilder: (context, animation, secondaryAnimation) {
+                              pageBuilder: (
+                                context,
+                                animation,
+                                secondaryAnimation,
+                              ) {
                                 return Stack(
                                   children: [
-                                    // 🔹 Blurred background
                                     BackdropFilter(
-                                      filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                                      filter: ImageFilter.blur(
+                                        sigmaX: 5,
+                                        sigmaY: 5,
+                                      ),
                                       child: Container(
                                         color: Colors.black.withOpacity(0.1),
                                       ),
                                     ),
-                                    // 🔸 Dialog content
                                     Center(
                                       child: Dialog(
                                         shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
                                         ),
-                                        insetPadding: EdgeInsets.only(top: 200, left: 19, right: 19),
+                                        insetPadding: EdgeInsets.only(
+                                          top: 200,
+                                          left: 19,
+                                          right: 19,
+                                        ),
                                         child: SizedBox(
                                           width: 358,
                                           height: 237,
@@ -206,20 +224,27 @@ class CashEpicScreen extends StatelessWidget {
                                                   height: 40,
                                                   child: ElevatedButton(
                                                     style: ElevatedButton.styleFrom(
-                                                      foregroundColor: Colors.black,
-                                                      backgroundColor: AppColors.orange,
+                                                      foregroundColor:
+                                                          Colors.black,
+                                                      backgroundColor:
+                                                          AppColors.orange,
                                                       shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(8.0),
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                              8.0,
+                                                            ),
                                                       ),
                                                     ),
                                                     onPressed: () {
-                                                      Get.back();
+                                                      // Get.back();
+                                                      Get.to(() => AchievementScreen());
                                                     },
                                                     child: Text(
                                                       "Okay",
                                                       style: TextStyle(
                                                         fontSize: 16.0,
-                                                        fontWeight: FontWeight.w600,
+                                                        fontWeight:
+                                                            FontWeight.w600,
                                                         fontFamily: "Baloo2",
                                                       ),
                                                     ),
@@ -264,7 +289,7 @@ class CashEpicScreen extends StatelessWidget {
                           child: Text(
                             "View All",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 16,
                               fontWeight: FontWeight.w500,
                               fontFamily: "Baloo2",
                               color: AppColors.orange,
@@ -277,39 +302,46 @@ class CashEpicScreen extends StatelessWidget {
                     SizedBox(
                       height: 300,
                       child: Obx(
-                            () => ListView.builder(
+                        () => ListView.builder(
                           itemCount: controller.history.length,
                           itemBuilder: (context, index) {
                             var item = controller.history[index];
                             return Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
+                              padding: const EdgeInsets.only(bottom: 3.0),
                               child: Card(
+                                color: AppColors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 6,
+                                  ),
                                   child: Row(
                                     children: [
                                       ClipRRect(
-                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderRadius: BorderRadius.circular(
+                                          8.0,
+                                        ),
                                         child: Image.asset(
                                           item['image'],
                                           width: 40,
-                                          height: 40,
+                                          height: 35.2,
                                           fit: BoxFit.contain,
                                         ),
                                       ),
                                       SizedBox(width: 12),
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               item['title'],
                                               style: TextStyle(
                                                 fontSize: 14,
-                                                fontWeight: FontWeight.w500,
+                                                fontWeight: FontWeight.w800,
                                                 fontFamily: "Baloo2",
                                                 color: AppColors.black,
                                               ),
@@ -327,7 +359,8 @@ class CashEpicScreen extends StatelessWidget {
                                         ),
                                       ),
                                       Column(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
                                         children: [
                                           Text(
                                             "Epic dollars",
@@ -342,11 +375,14 @@ class CashEpicScreen extends StatelessWidget {
                                           Container(
                                             padding: const EdgeInsets.symmetric(
                                               horizontal: 15,
-                                              vertical: 4,
+                                              vertical: 0,
                                             ),
                                             decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(10),
-                                              border: Border.all(color: AppColors.black),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              border: Border.all(
+                                                color: AppColors.black,
+                                              ),
                                             ),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
@@ -356,7 +392,7 @@ class CashEpicScreen extends StatelessWidget {
                                                   width: 20,
                                                   height: 20,
                                                 ),
-                                                SizedBox(width: 5),
+                                                SizedBox(width: 7),
                                                 Text(
                                                   "${item["epicDollars"]}",
                                                   style: TextStyle(
@@ -369,6 +405,7 @@ class CashEpicScreen extends StatelessWidget {
                                               ],
                                             ),
                                           ),
+                                          SizedBox(height: 5,)
                                         ],
                                       ),
                                     ],
