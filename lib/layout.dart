@@ -1,81 +1,129 @@
-// // achievement_screen.dart
-// import 'dart:math';
-//
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'controller/achievement_controller.dart';
+// import '../constants/colors.dart';
 //
-// class AchievementScreen extends StatelessWidget {
-//   final AchievementController controller = Get.put(AchievementController());
+// class EditProfileController extends GetxController {
+//   var awardName = ''.obs;
+//   var relation = ''.obs;
+//   var age = ''.obs;
+//   var gender = ''.obs;
+//   var dob = ''.obs;
+//
+// }
+//
+// class EditProfileScreen extends StatelessWidget {
+//   final controller = Get.put(EditProfileController());
 //
 //   @override
 //   Widget build(BuildContext context) {
 //     return Scaffold(
-//       appBar: AppBar(
-//         leading: IconButton(
-//           icon: Icon(Icons.arrow_back_ios_new),
-//           onPressed: () => Get.back(),
+//       backgroundColor: AppColors.secondary,
+//       appBar: PreferredSize(
+//         preferredSize: Size.fromHeight(60),
+//         child: AppBar(
+//           backgroundColor: AppColors.secondary,
+//           elevation: 0,
+//           leading: Padding(
+//             padding: const EdgeInsets.all(8.0),
+//             child: Container(
+//               decoration: BoxDecoration(
+//                 color: AppColors.white,
+//                 borderRadius: BorderRadius.circular(10),
+//               ),
+//               child: IconButton(
+//                 icon: Icon(Icons.arrow_back, color: AppColors.orange),
+//                 onPressed: () => Get.back(),
+//               ),
+//             ),
+//           ),
+//           centerTitle: true,
+//           title: Text(
+//             'Edit details',
+//             style: TextStyle(
+//               fontSize: 20,
+//               fontWeight: FontWeight.w600,
+//               fontFamily: "Baloo2",
+//               color: AppColors.black,
+//             ),
+//           ),
 //         ),
-//         title: Text('Achievement'),
-//         centerTitle: true,
-//         backgroundColor: Colors.white,
-//         foregroundColor: Colors.black,
-//         elevation: 0,
 //       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(16.0),
-//         child: SingleChildScrollView(
+//       body: SingleChildScrollView(
+//         child: Padding(
+//           padding: EdgeInsets.all(16.0),
 //           child: Column(
-//             crossAxisAlignment: CrossAxisAlignment.start,
 //             children: [
-//               Text(
-//                 'Current badges',
-//                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+//               SizedBox(height: 20),
+//               Stack(
+//                 alignment: Alignment.bottomRight,
+//                 children: [
+//                   Container(
+//                     height: 90,
+//                     width: 90,
+//                     decoration: BoxDecoration(
+//                       shape: BoxShape.circle,
+//                       image: DecorationImage(
+//                         image: AssetImage('assets/images/user_image.png'),
+//                         fit: BoxFit.cover,
+//                       ),
+//                     ),
+//                   ),
+//                   Container(
+//                     decoration: BoxDecoration(
+//                       color: AppColors.white,
+//                       shape: BoxShape.circle,
+//                       boxShadow: [
+//                         BoxShadow(
+//                           color: Colors.black.withOpacity(0.1),
+//                           blurRadius: 4,
+//                         ),
+//                       ],
+//                     ),
+//                     child: IconButton(
+//                       onPressed: () {
+//                         // You can implement image picker
+//                       },
+//                       icon: Icon(Icons.camera_alt, size: 20, color: AppColors.orange),
+//                     ),
+//                   ),
+//                 ],
 //               ),
-//               SizedBox(height: 12),
-//               Obx(() => GridView.builder(
-//                 shrinkWrap: true,
-//                 physics: NeverScrollableScrollPhysics(),
-//                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                   crossAxisCount: 3,
-//                   mainAxisSpacing: 20,
-//                   crossAxisSpacing: 20,
-//                   childAspectRatio: 1,
+//               SizedBox(height: 30),
+//               _buildTextField("Award name", controller.awardName),
+//               SizedBox(height: 16),
+//               _buildTextField("Relation with parent", controller.relation),
+//               SizedBox(height: 16),
+//               _buildTextField("Age", controller.age),
+//               SizedBox(height: 16),
+//               _buildDropdownField("Gender", controller),
+//               SizedBox(height: 16),
+//               _buildTextField("Date of birth", controller.dob),
+//               SizedBox(height: 30),
+//               SizedBox(
+//                 width: 150,
+//                 height: 45,
+//                 child: ElevatedButton(
+//                   style: ElevatedButton.styleFrom(
+//                     backgroundColor: AppColors.orange,
+//                     shape: RoundedRectangleBorder(
+//                       borderRadius: BorderRadius.circular(10),
+//                     ),
+//                   ),
+//                   onPressed: () {
+//                     // Save data logic
+//                     print('Saved!');
+//                   },
+//                   child: Text(
+//                     "Save",
+//                     style: TextStyle(
+//                       color: AppColors.black,
+//                       fontWeight: FontWeight.w600,
+//                       fontSize: 18,
+//                       fontFamily: "Baloo2",
+//                     ),
+//                   ),
 //                 ),
-//                 itemCount: controller.currentBadges.length,
-//                 itemBuilder: (context, index) {
-//                   var badge = controller.currentBadges[index] as Map<String, String>;
-//                   return badgeItem(
-//                     label: badge['title'] ?? '',
-//                     imagePath: badge['image'] ?? '',
-//                     isLocked: false,
-//                   );
-//                 },
-//               )),
-//               SizedBox(height: 24),
-//               Text(
-//                 'Locked badges',
-//                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
 //               ),
-//               SizedBox(height: 12),
-//               Obx(() => GridView.builder(
-//                 shrinkWrap: true,
-//                 physics: NeverScrollableScrollPhysics(),
-//                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                   crossAxisCount: 3,
-//                   mainAxisSpacing: 20,
-//                   crossAxisSpacing: 20,
-//                   childAspectRatio: 1,
-//                 ),
-//                 itemCount: controller.lockedBadges.length,
-//                 itemBuilder: (context, index) {
-//                   return badgeItem(
-//                     label: '',
-//                     imagePath: controller.lockedBadges[index],
-//                     isLocked: true,
-//                   );
-//                 },
-//               )),
 //             ],
 //           ),
 //         ),
@@ -83,50 +131,59 @@
 //     );
 //   }
 //
-//   Widget badgeItem({required String label, required String imagePath, required bool isLocked}) {
-//     return Column(
-//       mainAxisSize: MainAxisSize.min,
-//       children: [
-//         Transform.rotate(
-//           angle: pi / 4, // Rotate outer container 45 degrees
-//           child: Container(
-//             width: 80,
-//             height: 80,
-//             decoration: BoxDecoration(
-//               color: Colors.grey.shade300,
-//               borderRadius: BorderRadius.circular(12),
-//             ),
-//             child: Center(
-//               child: Transform.rotate(
-//                 angle: -pi / 4, // Reverse rotate inner container
-//                 child: Container(
-//                   width: 60,
-//                   height: 60,
-//                   decoration: BoxDecoration(
-//                     color: Colors.white,
-//                     borderRadius: BorderRadius.circular(8),
-//                   ),
-//                   child: Center(
-//                     child: Image.asset(
-//                       imagePath,
-//                       width: 32,
-//                       height: 32,
-//                       fit: BoxFit.contain,
-//                     ),
-//                   ),
-//                 ),
-//               ),
-//             ),
+//   Widget _buildTextField(String hint, RxString controllerText) {
+//     return Obx(
+//           () => TextFormField(
+//         initialValue: controllerText.value,
+//         onChanged: (value) => controllerText.value = value,
+//         decoration: InputDecoration(
+//           hintText: hint,
+//           filled: true,
+//           fillColor: AppColors.white,
+//           enabledBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(10),
+//             borderSide: BorderSide(color: AppColors.orange),
 //           ),
+//           focusedBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(10),
+//             borderSide: BorderSide(color: AppColors.orange),
+//           ),
+//           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
 //         ),
-//         SizedBox(height: 8),
-//         if (!isLocked)
-//           Text(
-//             label,
-//             textAlign: TextAlign.center,
-//             style: TextStyle(fontSize: 12),
+//       ),
+//     );
+//   }
+//
+//   Widget _buildDropdownField(String hint, EditProfileController controller) {
+//     return Obx(
+//           () => DropdownButtonFormField<String>(
+//         value: controller.gender.value.isEmpty ? null : controller.gender.value,
+//         onChanged: (value) {
+//           if (value != null) {
+//             controller.gender.value = value;
+//           }
+//         },
+//         items: ["Male", "Female", "Other"]
+//             .map((gender) => DropdownMenuItem(
+//           value: gender,
+//           child: Text(gender),
+//         ))
+//             .toList(),
+//         decoration: InputDecoration(
+//           hintText: hint,
+//           filled: true,
+//           fillColor: AppColors.white,
+//           enabledBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(10),
+//             borderSide: BorderSide(color: AppColors.orange),
 //           ),
-//       ],
+//           focusedBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(10),
+//             borderSide: BorderSide(color: AppColors.orange),
+//           ),
+//           contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+//         ),
+//       ),
 //     );
 //   }
 // }

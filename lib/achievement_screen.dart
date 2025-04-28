@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertest/controller/achievement_controller.dart';
 import 'package:get/get.dart';
 
+import 'Details/details_screen.dart';
 import 'constants/colors.dart';
 
 class AchievementScreen extends StatelessWidget {
@@ -51,9 +52,30 @@ class AchievementScreen extends StatelessWidget {
               ),
             ),
           ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0, top: 18.0),
+              child: Container(
+                width: 36,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: IconButton(
+                  icon: const Icon(Icons.arrow_forward, color: AppColors.orange),
+                  onPressed: () {
+                    Get.to(() => DetailsScreen()); // Navigate to detail screen
+                  },
+                  padding: EdgeInsets.zero,
+                ),
+              ),
+            ),
+          ],
           centerTitle: true,
         ),
       ),
+
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: ListView(

@@ -1,15 +1,26 @@
-// // achievement_controller.dart
 // import 'package:get/get.dart';
 //
-// class AchievementController extends GetxController {
-//   var currentBadges = [
-//     'Homework hero',
-//     'Cleaning champ',
-//     'Puzzle master',
-//     'Homework hero',
-//     'Cleaning champ',
-//     'Puzzle master',
-//   ].obs;
+// class UserDetailsController extends GetxController {
+//   var name = 'Emma Brown'.obs;
+//   var relation = 'Daughter'.obs;
+//   var age = 8.obs;
+//   var gender = 'Female'.obs;
+//   var dob = '2/2/2000'.obs;
+//   var email = 'Emma.Brown@gmail.com'.obs;
 //
-//   var lockedBadges = List.generate(6, (index) => 'Locked').obs;
+//   void updateDetails({
+//     String? newName,
+//     String? newRelation,
+//     int? newAge,
+//     String? newGender,
+//     String? newDob,
+//     String? newEmail,
+//   }) {
+//     if (newName != null) name.value = newName;
+//     if (newRelation != null) relation.value = newRelation;
+//     if (newAge != null) age.value = newAge;
+//     if (newGender != null) gender.value = newGender;
+//     if (newDob != null) dob.value = newDob;
+//     if (newEmail != null) email.value = newEmail;
+//   }
 // }
