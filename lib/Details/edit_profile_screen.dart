@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertest/chat_screen/chat_detail_screen.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../controller/edit_profile_controller.dart';
+import '../widget/edit_profile/date_text_field.dart';
 import '../widget/edit_profile/edit_profile_image.dart';
 import '../widget/edit_profile/profile_dropdown_field.dart';
 import '../widget/edit_profile/profile_text_field.dart';
@@ -51,6 +53,24 @@ class EditProfileScreen extends StatelessWidget {
             ),
           ),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8.0, top: 18.0),
+            child: Container(
+              width: 36,
+              height: 36,
+              decoration: BoxDecoration(
+                color: AppColors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: IconButton(
+                icon: const Icon(Icons.arrow_forward, color: AppColors.orange),
+                onPressed: () => Get.to(() => ChatDetailScreen()),
+                padding: EdgeInsets.zero,
+              ),
+            ),
+          ),
+        ],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -64,15 +84,15 @@ class EditProfileScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildHeading("Award name"),
               const SizedBox(height: 5),
-              ProfileTextField(hint: "Remote car", controllerText: controller.awardName),
+              ProfileTextField(hint: "Remote car", controller: controller.awardName),
               const SizedBox(height: 15),
               _buildHeading("Relation with parent"),
               const SizedBox(height: 5),
-              ProfileTextField(hint: "Daughter", controllerText: controller.relation),
+              ProfileTextField(hint: "Daughter", controller: controller.relation),
               const SizedBox(height: 15),
               _buildHeading("Age"),
               const SizedBox(height: 5),
-              ProfileTextField(hint: "12 years", controllerText: controller.age),
+              ProfileTextField(hint: "12 years", controller: controller.age),
               const SizedBox(height: 15),
               _buildHeading("Gender"),
               const SizedBox(height: 5),
@@ -80,7 +100,7 @@ class EditProfileScreen extends StatelessWidget {
               const SizedBox(height: 15),
               _buildHeading("Date of birth"),
               const SizedBox(height: 5),
-              ProfileTextField(hint: "dd/mm/yy", controllerText: controller.dob),
+              DateTextField(hint: "dd/mm/yyyy", controller: controller.dob),
               const SizedBox(height: 20),
               Center(
                 child: SizedBox(

@@ -16,20 +16,24 @@ class ProfileDropdownField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(
-          () => DropdownButtonFormField<String>(
+      () => DropdownButtonFormField<String>(
         value: controller.gender.value.isEmpty ? null : controller.gender.value,
         onChanged: (value) {
           if (value != null) {
             controller.gender.value = value;
           }
         },
-        items: ["Male", "Female", "Other"]
-            .map((gender) => DropdownMenuItem(value: gender, child: Text(gender)))
-            .toList(),
+        hint: Text(hint, style: TextStyle(color: AppColors.grey)),
+        items:
+            ["Male", "Female", "Other"]
+                .map(
+                  (gender) =>
+                      DropdownMenuItem(value: gender, child: Text(gender)),
+                )
+                .toList(),
         decoration: InputDecoration(
-          hintText: hint,
           filled: true,
-          fillColor: AppColors.white,
+          fillColor: AppColors.white.withOpacity(0.5),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: AppColors.orange),

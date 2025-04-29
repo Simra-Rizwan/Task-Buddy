@@ -4,24 +4,24 @@ import '../../constants/colors.dart';
 
 class ProfileTextField extends StatelessWidget {
   final String hint;
-  final RxString controllerText;
+  final TextEditingController controller;
 
   const ProfileTextField({
     required this.hint,
-    required this.controllerText,
+    required this.controller,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-          () => TextFormField(
-        initialValue: controllerText.value,
-        onChanged: (value) => controllerText.value = value,
+    return  TextFormField(
+      controller: controller,
+      keyboardType: TextInputType.text,
         decoration: InputDecoration(
           hintText: hint,
+          hintStyle: TextStyle(color: AppColors.grey),
           filled: true,
-          fillColor: AppColors.white,
+          fillColor: AppColors.white.withOpacity(0.5),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: BorderSide(color: AppColors.orange),
@@ -32,7 +32,6 @@ class ProfileTextField extends StatelessWidget {
           ),
           contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         ),
-      ),
     );
   }
 }

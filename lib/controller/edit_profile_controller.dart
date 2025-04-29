@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
- class EditProfileController extends GetxController{
+class EditProfileController extends GetxController {
+  final TextEditingController awardName = TextEditingController();
+  final TextEditingController relation = TextEditingController();
+  final TextEditingController age = TextEditingController();
+  final TextEditingController dob = TextEditingController();
 
-   var awardName =''.obs;
-   var relation =''.obs;
-   var age=''.obs;
-   var gender=''.obs;
-   var  dob=''.obs;
- }
+  RxString gender = ''.obs;
+}
