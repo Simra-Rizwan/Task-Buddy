@@ -1,7 +1,8 @@
 import "package:flutter/material.dart";
-import "package:fluttertest/onboarding/onboarding_screen.dart";
 import "package:get/get.dart";
-import "../constants/colors.dart";
+
+import "../../constants/colors.dart";
+import "onboarding_screen.dart";
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

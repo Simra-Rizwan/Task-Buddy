@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../onboarding/choose_avatar_screen.dart';
+import '../screens/onboarding/choose_avatar_screen.dart';
+
 
 class CodeScreenController extends GetxController {
   final List<TextEditingController> codeScreenControllers = List.generate(

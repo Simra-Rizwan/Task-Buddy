@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertest/onboarding/parent_code_screen.dart';
+import 'package:fluttertest/screens/onboarding/parent_code_screen.dart';
 import 'package:get/get.dart';
-import '../constants/colors.dart';
 
+import '../../constants/colors.dart';
 // Enum for roles
 //want to limit a variable to a small, predefined set of values
 enum UserRole { child, parent }

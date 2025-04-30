@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertest/chat_screen/chat_detail_screen.dart';
+import 'package:fluttertest/screens/HomeScreen.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../controller/edit_profile_controller.dart';
-import '../widget/edit_profile/date_text_field.dart';
-import '../widget/edit_profile/edit_profile_image.dart';
-import '../widget/edit_profile/profile_dropdown_field.dart';
-import '../widget/edit_profile/profile_text_field.dart';
+import '../../widgets/edit_profile/date_text_field.dart';
+import '../../widgets/edit_profile/edit_profile_image.dart';
+import '../../widgets/edit_profile/profile_dropdown_field.dart';
+import '../../widgets/edit_profile/profile_text_field.dart';
 
 class EditProfileScreen extends StatelessWidget {
   final controller = Get.put(EditProfileController());
@@ -53,24 +53,6 @@ class EditProfileScreen extends StatelessWidget {
             ),
           ),
         ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0, top: 18.0),
-            child: Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: IconButton(
-                icon: const Icon(Icons.arrow_forward, color: AppColors.orange),
-                onPressed: () => Get.to(() => ChatDetailScreen()),
-                padding: EdgeInsets.zero,
-              ),
-            ),
-          ),
-        ],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -115,7 +97,7 @@ class EditProfileScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // Save logic
+                      Get.to(()=> HomeScreen());
                     },
                     child: const Text(
                       "Save",

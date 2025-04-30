@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:fluttertest/controller/cash_epic_controller.dart';
 import 'package:get/get.dart';
-import '../achievement_screen.dart';
+import 'achievement_screen.dart';
 import '../constants/colors.dart';
 import 'history_screen.dart';
 
@@ -237,7 +237,7 @@ class CashEpicScreen extends StatelessWidget {
                                                     ),
                                                     onPressed: () {
                                                       // Get.back();
-                                                      Get.to(() => AchievementScreen());
+                                                      Get.back();
                                                     },
                                                     child: Text(
                                                       "Okay",

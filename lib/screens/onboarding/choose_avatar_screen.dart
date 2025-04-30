@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
-import "package:fluttertest/cash_epic_dollar/cash_epic_screen.dart";
 import "package:fluttertest/controller/avatar_controller.dart";
+import "package:fluttertest/screens/HomeScreen.dart";
 import "package:get/get.dart";
 
-import "../constants/colors.dart";
+import "../../constants/colors.dart";
 
 class ChooseAvatarScreen extends StatelessWidget {
   final AvatarController controller = Get.put(AvatarController());
@@ -103,7 +103,7 @@ class ChooseAvatarScreen extends StatelessWidget {
                 onPressed: () {
                   if (controller.selectedAvatarIndex.value!= null) {
                     Get.snackbar("Selected", "Avatar has been selected");
-                    Get.to(()=>(CashEpicScreen())); // Replace with your actual route name
+                    Get.to(()=>(HomeScreen()));
                   } else {
                     Get.snackbar("No Selection", "Please select an avatar before saving");
                   }

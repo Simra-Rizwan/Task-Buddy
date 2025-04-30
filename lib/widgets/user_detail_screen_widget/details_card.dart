@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../controller/user_details_controller.dart';
-import '../../Details/edit_profile_screen.dart';
+import '../../screens/Details/edit_profile_screen.dart';
 
 class DetailsCard extends StatelessWidget {
   final UserDetailsController controller;

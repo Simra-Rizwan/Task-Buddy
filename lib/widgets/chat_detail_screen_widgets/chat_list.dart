@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import '../controller/chat_detail_controller.dart';
-import '../constants/colors.dart';
+
+import '../../constants/colors.dart';
+import '../../controller/chat_detail_controller.dart';
 
 class ChatList extends StatelessWidget {
   final ChatDetailController controller;

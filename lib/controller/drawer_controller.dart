@@ -1,7 +1,10 @@
+import 'package:fluttertest/screens/achievement_screen.dart';
+import 'package:fluttertest/screens/history_screen.dart';
 import 'package:get/get.dart';
-
+import '../screens/cash_epic_screen.dart';
 import '../screens/AddAwardScreen.dart';
-import '../screens/ChatScreen.dart';
+import '../screens/chat_screens/ChatScreen.dart';
+import '../screens/Details/details_screen.dart';
 import '../screens/MyTasksScreen.dart';
 import '../screens/NotificationScreen.dart';
 import '../screens/RewardStoreScreen.dart';
@@ -30,6 +33,7 @@ class CustomDrawerController extends GetxController {
   void navigateToCashEpicDollar() {
     Get.back();
     // Add navigation logic here
+    Get.to(()=>CashEpicScreen());
   }
 
   void navigateToMyTasks() {
@@ -53,6 +57,7 @@ class CustomDrawerController extends GetxController {
   void navigateToAchievements() {
     Get.back();
     // Add navigation logic here
+    Get.to(()=> AchievementScreen());
   }
 
   void navigateToChat() {
@@ -74,11 +79,13 @@ Future.delayed(const Duration(milliseconds: 300), (){
   void navigateToHistory() {
     Get.back();
     // Add navigation logic here
+    Get.to(()=> HistoryScreen());
   }
 
   void navigateToProfile() {
     Get.back();
     // Add navigation logic here
+    Get.to(()=> DetailsScreen());
   }
 
   void logout() {

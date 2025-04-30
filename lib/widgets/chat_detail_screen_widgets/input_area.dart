@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+
+import '../../constants/colors.dart';
 
 class InputArea extends StatelessWidget {
   const InputArea({Key? key}) : super(key: key);

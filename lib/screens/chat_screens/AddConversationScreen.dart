@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../constants/colors.dart';
-import '../controller/chat_controller.dart';
-import '../widgets/Chat/chat_item.dart';
-import 'AddConversationScreen.dart';
+import '../../constants/colors.dart';
+import '../../controller/add_conversation_controller.dart';
+import '../../controller/chat_controller.dart';
+import '../../widgets/Chat/add_conversation_item.dart';
+import '../../widgets/Chat/chat_item.dart';
 
-class ChatScreen extends StatelessWidget {
-  final ChatController controller = Get.put(ChatController());
+class AddConversationScreen extends StatelessWidget {
+  final AddConversationController controller = Get.put(AddConversationController());
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                   const Text(
-                    'Chat',
+                    'Add Conversation',
                     style: TextStyle(
                       fontFamily: 'Baloo2',
                       fontSize: 20,
@@ -92,23 +93,6 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
- GestureDetector(
-   onTap: (){
-
-     Get.to(()=> AddConversationScreen());
-
-   },
-   child: Container(
-     width: 52,
-     height: 52,
-     decoration: BoxDecoration(
-       color: Colors.white,
-       borderRadius: BorderRadius.circular(16),
-     ),
-     child: Icon(Icons.add, color: AppColors.PrimaryColor),
-   ),
- )
-
                 ],
               ),
             ),
@@ -116,15 +100,9 @@ class ChatScreen extends StatelessWidget {
 
             // 🔹 Chat List with Divider
             Expanded(
-              child: Obx(() => ListView.separated(
-                itemCount: controller.chats.length,
-                separatorBuilder: (_, __) => Divider(
-                  color: AppColors.PrimaryColor,
-                  thickness: 0.5,
-                  indent: 16,
-                  endIndent: 16,
-                ),
-                itemBuilder: (_, index) => ChatItem(chat: controller.chats[index]),
+              child: Obx(() => ListView.builder(
+                itemCount: controller.addChats.length,
+                itemBuilder: (_, index) => AddConversationItem(addChat: controller.addChats[index]),
               )),
             ),
           ],

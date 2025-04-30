@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../chat_detail_screen_widgets/chat_detail_appbar.dart';
-import '../chat_detail_screen_widgets/chat_list.dart';
-import '../chat_detail_screen_widgets/input_area.dart';
-import '../controller/chat_detail_controller.dart';
+import '../../controller/chat_detail_controller.dart';
+import '../../widgets/chat_detail_screen_widgets/chat_detail_appbar.dart';
+import '../../widgets/chat_detail_screen_widgets/chat_list.dart';
+import '../../widgets/chat_detail_screen_widgets/input_area.dart';
 
 
 class ChatDetailScreen extends StatelessWidget {

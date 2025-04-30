@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertest/constants/colors.dart';
-import 'package:fluttertest/widget/edit_profile/date_formatter.dart';
+
+import 'date_formatter.dart';
 
 class DateTextField extends StatelessWidget {
   final String hint;

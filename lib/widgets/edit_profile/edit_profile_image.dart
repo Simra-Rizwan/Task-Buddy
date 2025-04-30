@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../constants/colors.dart';
+import '../../screens/onboarding/choose_avatar_screen.dart';
 
 class EditProfileImage extends StatelessWidget {
   const EditProfileImage({super.key});
@@ -37,7 +39,7 @@ class EditProfileImage extends StatelessWidget {
             child: Center(
               child: IconButton(
                 onPressed: () {
-                  // pick image logic
+                  Get.to(()=> ChooseAvatarScreen());
                 },
                 icon: Icon(
                   Icons.camera_alt,

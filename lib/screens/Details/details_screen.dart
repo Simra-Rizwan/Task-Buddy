@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../constants/colors.dart';
 import '../../controller/user_details_controller.dart';
-import '../user_detail_screen_widget/details_card.dart';
-import '../user_detail_screen_widget/details_info.dart';
+import '../../widgets/user_detail_screen_widget/details_card.dart';
+import '../../widgets/user_detail_screen_widget/details_info.dart';
 
 class DetailsScreen extends StatelessWidget {
   final controller = Get.put(UserDetailsController());

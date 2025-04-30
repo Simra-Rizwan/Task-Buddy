@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
-import "package:fluttertest/onboarding/select_role_screen.dart";
+import "package:fluttertest/screens/onboarding/select_role_screen.dart";
 import "package:get/get.dart";
 
-import "../constants/colors.dart";
+import "../../constants/colors.dart";
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
