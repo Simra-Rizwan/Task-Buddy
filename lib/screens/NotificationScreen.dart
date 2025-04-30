@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
-import 'package:task_buddy/controller/notification_controller.dart';
-import 'package:task_buddy/widgets/notification_tile.dart';
+
+import '../constants/colors.dart';
+import '../controller/notification_controller.dart';
+import '../widgets/notification_tile.dart';
 
 class NotificationScreen extends StatelessWidget{
   NotificationScreen ({ Key? key}): super(key: key);

@@ -1,11 +1,9 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
-import '../constant/colors/AppColors.dart';
+import '../constants/colors.dart';
 import '../controller/drawer_controller.dart';
 import '../controller/weekly_calendar_controller.dart';
 import '../widgets/Home/custom_right_drawer.dart';

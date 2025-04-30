@@ -2,8 +2,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
 import '../Models/RewardItemModel.dart';
+import '../constants/colors.dart';
 import '../screens/RewardStoreScreen.dart';
 
 class RedeemBottomSheet {

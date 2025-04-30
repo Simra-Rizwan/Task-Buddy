@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertest/widgets/Home/showLogoutBottomSheet.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
-import 'package:task_buddy/controller/drawer_controller.dart';
-import 'package:task_buddy/widgets/Home/drawer_item.dart';
-import 'package:task_buddy/widgets/Home/showLogoutBottomSheet.dart';
+
+import '../../constants/colors.dart';
+import '../../controller/drawer_controller.dart';
+import 'drawer_item.dart';
 
 class CustomRightDrawer extends StatelessWidget {
   const CustomRightDrawer({super.key});

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
+
+import '../../constants/colors.dart';
 
 class MyTasksTopBar extends StatelessWidget {
   const MyTasksTopBar({Key? key}) : super(key: key);

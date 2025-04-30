@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
 import '../../Models/chat_model.dart';
+import '../../constants/colors.dart';
 
 
 class ChatItem extends StatelessWidget {

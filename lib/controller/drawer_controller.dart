@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
-import 'package:task_buddy/screens/ChatScreen.dart';
-import 'package:task_buddy/screens/NotificationScreen.dart';
-import 'package:task_buddy/screens/RewardStoreScreen.dart';
 
 import '../screens/AddAwardScreen.dart';
+import '../screens/ChatScreen.dart';
 import '../screens/MyTasksScreen.dart';
+import '../screens/NotificationScreen.dart';
+import '../screens/RewardStoreScreen.dart';
 import '../widgets/Home/task_list_widget.dart';
 
 class CustomDrawerController extends GetxController {

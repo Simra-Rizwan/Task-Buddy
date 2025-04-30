@@ -1,7 +1,7 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
+
+import '../../constants/colors.dart';
 
 class CustomTopBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey; // Added this field to accept the scaffoldKey

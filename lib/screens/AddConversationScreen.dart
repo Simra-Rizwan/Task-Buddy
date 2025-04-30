@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/widgets/Chat/add_conversation_item.dart';
-import '../constant/colors/AppColors.dart';
+import '../constants/colors.dart';
 import '../controller/add_conversation_controller.dart';
 import '../controller/chat_controller.dart';
+import '../widgets/Chat/add_conversation_item.dart';
 import '../widgets/Chat/chat_item.dart';
 
 class AddConversationScreen extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../constant/colors/AppColors.dart';
+import '../constants/colors.dart';
 import '../controller/chat_controller.dart';
 import '../widgets/Chat/chat_item.dart';
 import 'AddConversationScreen.dart';

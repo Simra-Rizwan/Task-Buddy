@@ -1,9 +1,8 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:fluttertest/widgets/redeem_award_bottom_sheet.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:task_buddy/widgets/redeem_award_bottom_sheet.dart';
 import '../Models/RewardItemModel.dart';
 
 class RewardItemTile extends StatelessWidget {

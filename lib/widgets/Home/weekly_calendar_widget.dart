@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
+import '../../constants/colors.dart';
 import '../../controller/weekly_calendar_controller.dart';
 
 class WeeklyCalendarWidget extends StatelessWidget {

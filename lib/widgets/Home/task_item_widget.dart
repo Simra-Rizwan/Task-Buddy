@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
+
+import '../../constants/colors.dart';
 
 class TaskItemWidget extends StatelessWidget {
   final String title;

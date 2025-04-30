@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertest/widgets/Home/task_item_widget.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/controller/task_controller.dart';
-import 'package:task_buddy/screens/MyTasksScreen.dart';
-import 'package:task_buddy/widgets/Home/task_item_widget.dart';
-
-import '../../constant/colors/AppColors.dart';
+import '../../constants/colors.dart';
+import '../../controller/task_controller.dart';
+import '../../screens/MyTasksScreen.dart';
 import '../../screens/RewardStoreScreen.dart';
 
 class TaskListWidget extends StatelessWidget {

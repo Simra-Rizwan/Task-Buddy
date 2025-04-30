@@ -1,8 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/controller/add_award_controller.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
+
+import '../../constants/colors.dart';
+import '../../controller/add_award_controller.dart';
 
 class UploadPhotoContainer extends StatelessWidget {
   final AddAwardController controller = Get.find();

@@ -3,8 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-
-import '../constant/colors/AppColors.dart';
+import '../constants/colors.dart';
 import '../screens/HomeScreen.dart';
 
 class AddAwardController extends GetxController {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
 import '../../Models/MyTasksModel.dart';
+import '../../constants/colors.dart';
 import '../../controller/my_tasks_controller.dart';
 import '../../screens/TaskDetailsScreen.dart';
 

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
-import 'package:task_buddy/screens/MyTasksScreen.dart';
 import '../Models/MyTasksModel.dart';
+import '../constants/colors.dart';
 import '../controller/add_award_controller.dart';
 import '../widgets/Home/UploadPhotoButton.dart';
+import 'MyTasksScreen.dart';
 
 class TaskDetailsScreen extends StatelessWidget {
 

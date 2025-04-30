@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_buddy/constant/colors/AppColors.dart';
 import '../Models/ NotificationModel.dart';
+import '../constants/colors.dart';
 
 
 class NotificationTile extends StatelessWidget {

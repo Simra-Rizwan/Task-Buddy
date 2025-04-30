@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../constant/colors/AppColors.dart';
+import '../../constants/colors.dart';
 
 void showLogoutBottomSheet(VoidCallback onConfirm) {
   showDialog(
