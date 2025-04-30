@@ -56,7 +56,7 @@ class SelectRoleScreen extends StatelessWidget {
                       _buildRoleContainer(
                         role: UserRole.child,
                         label: 'Child',
-                        imagePath: 'assets/images/child2_image.png',
+                        imagePath: 'assets/images/child_image.png',
                         isSelected: controller.selectedRole.value ==
                             UserRole.child,
                         onTap: () => controller.selectRole(UserRole.child),

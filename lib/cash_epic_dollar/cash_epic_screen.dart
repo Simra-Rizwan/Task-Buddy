@@ -326,7 +326,7 @@ class CashEpicScreen extends StatelessWidget {
                                         ),
                                         child: Image.asset(
                                           item['image'],
-                                          width: 40,
+                                          width: 43,
                                           height: 35.2,
                                           fit: BoxFit.contain,
                                         ),
